@@ -1,0 +1,128 @@
+<!doctype html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Figshare API Explorer</title>
+
+	<link rel="stylesheet" href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css">
+	<link rel="stylesheet" href="form.css">
+</head>
+
+<body>
+	<article class="container">
+		<header>
+			<h1><a href="./">Figshare API Explorer</a></h1>
+		</header>
+
+		<section>
+			<h2>Documentation</h2>
+			<div><a href="http://api.figshare.com/docs/howto.html#q-cani">How To</a></div>
+			<div><a href="http://api.figshare.com/docs/intro.html">Authentication (optional)</a></div>
+		</section>
+
+		<section>
+			<h2>Categories</h2>
+			<div><a href="http://api.figshare.com/v1/categories">List all categories</a></div>
+		</section>
+
+		<section>
+			<h2>Public Articles</h2>
+
+			<div><a href="http://api.figshare.com/v1/articles">List public articles</a></div>
+
+			<h3>Search</h3>
+
+			<form action="http://api.figshare.com/v1/articles/search">
+				<label>
+					<span>Keywords</span>
+					<input name="search_for" type="text" placeholder="keywords" size="30" required data-example="cell division">
+				</label>
+
+				<label>
+					<span>Title</span>
+					<input name="has_title" type="text" placeholder="article title">
+				</label>
+
+				<label>
+					<span>Author</span>
+					<input name="has_author" type="text" placeholder="author name">
+				</label>
+
+				<label>
+					<span>Tag</span>
+					<input name="has_tag" type="text" placeholder="tag">
+				</label>
+
+				<label>
+					<span>Published Before</span>
+					<input name="to_date" type="date">
+				</label>
+
+				<label>
+					<span>Published After</span>
+					<input name="from_date" type="date">
+				</label>
+
+				<label>
+					<span>Category</span>
+					<input name="has_category" type="number">
+				</label>
+
+				<label>
+					<span>Page</span>
+					<input name="page" type="number" value="1">
+				</label>
+
+				<input class="btn btn-primary" type="submit" value="GET">
+			</form>
+
+			<h3>Retrieve</h3>
+
+			<form action="http://api.figshare.com/v1/articles/{id}">
+				<label>
+					<span>Article ID or DOI</span>
+					<input name="id" type="text" placeholder="article id" pattern="^\d+$">
+				</label>
+
+				<input class="btn btn-primary" type="submit" value="GET">
+			</form>
+
+			<h2>Your articles</h2>
+
+			<div><a href="http://api.figshare.com/v1/my_data/articles">List your articles</a></div>
+
+			<h3>Retrieve</h3>
+
+			<form action="http://api.figshare.com/v1/my_data/articles/{id}">
+				<label>
+					<span>Article ID</span>
+					<input name="id" type="text" placeholder="article id" pattern="^\d+$">
+				</label>
+
+				<input class="btn btn-primary" type="submit" value="GET">
+			</form>
+
+		</section>
+
+		<section>
+			<h2>Authors</h2>
+
+			<form action="http://api.figshare.com/v1/my_data/authors">
+				<label>
+					<span>Name</span>
+					<input name="search_for" type="text" placeholder="author name">
+				</label>
+
+				<label>
+					<span>Page</span>
+					<input name="page" type="number" value="1">
+				</label>
+
+				<input class="btn btn-primary" type="submit" value="GET">
+			</form>
+
+	</article>
+
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
+	<script src="form.js"></script>
+</body>

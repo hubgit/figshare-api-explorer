@@ -1,0 +1,38 @@
+form {
+	padding: 5px;
+}
+
+label {
+	display: table-row;
+	padding: 5px;
+}
+
+label > * {
+	display: table-cell;
+	padding: 10px 5px;
+}
+
+label > span {
+	font-weight: bold;
+	text-align: right;
+}
+
+label > input, label > select {
+	margin-bottom: 0 !important;
+}
+
+.example {
+	display: inline-block;
+	cursor: help;
+	background: #eee;
+	border: 1px solid #f6f6f6;
+	margin-left: 10px;
+	text-decoration: none;
+	color: #444;
+	padding: 0 5px;
+}
+
+.example:before {
+	content: "Example: ";
+}
+
