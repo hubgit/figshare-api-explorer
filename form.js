@@ -16,12 +16,12 @@ $("form").on("submit", function(event) {
 		return value;
 	}));
 
-	form.find("select").each(function() {
-		var select = $(this);
-		formToSubmit.find("select[name=" + select.attr("name") + "]").val(select.val());
+	form.find("select,textarea").each(function() {
+		var node = $(this);
+		formToSubmit.find("*[name=" + node.attr("name") + "]").val(node.val());
 	});
 
-	formToSubmit.find("input,select").each(function(index, node) {
+	formToSubmit.find("input,select,textarea").each(function(index, node) {
 		var node = $(node);
 
 		if (!node.val()) {

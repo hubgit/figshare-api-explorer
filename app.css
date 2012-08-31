@@ -1,0 +1,14 @@
+.description {
+	padding: 10px;
+	margin: 10px 0;
+	background: #f6f6ff;
+	color: #444;
+}
+
+.warning {
+	padding: 10px;
+	margin: 10px 0;
+	background: #ffc6c6;
+	color: #444;
+	border: 1px solid #ffaaaa;
+}

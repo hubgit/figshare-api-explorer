@@ -6,6 +6,7 @@
 
 	<link rel="stylesheet" href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css">
 	<link rel="stylesheet" href="form.css">
+	<link rel="stylesheet" href="app.css">
 </head>
 
 <body>
@@ -15,22 +16,31 @@
 		</header>
 
 		<section>
-			<h2>Documentation</h2>
+			<h2 class="page-header">Documentation</h2>
 			<div><a href="http://api.figshare.com/docs/howto.html#q-cani">How To</a></div>
 			<div><a href="http://api.figshare.com/docs/intro.html">Authentication (optional)</a></div>
 		</section>
 
 		<section>
-			<h2>Categories</h2>
-			<div><a href="http://api.figshare.com/v1/categories">List all categories</a></div>
+			<h2 class="page-header">Categories</h2>
+
+			<p class="description">List all categories</p>
+
+			<div><a class="btn btn-primary" href="http://api.figshare.com/v1/categories">GET</a></div>
 		</section>
 
 		<section>
-			<h2>Public Articles</h2>
+			<h2 class="page-header">Public Articles</h2>
 
-			<div><a href="http://api.figshare.com/v1/articles">List public articles</a></div>
+			<h3>Index</h3>
+
+			<p class="description">List all public articles</p>
+
+			<div><a class="btn btn-primary" href="http://api.figshare.com/v1/articles">GET</a></div>
 
 			<h3>Search</h3>
+
+			<p class="description">Search for public articles by keyword</p>
 
 			<form action="http://api.figshare.com/v1/articles/search">
 				<label>
@@ -78,6 +88,8 @@
 
 			<h3>Retrieve</h3>
 
+			<p class="description">Retrieve a public article by ID or DOI</p>
+
 			<form action="http://api.figshare.com/v1/articles/{id}">
 				<label>
 					<span>Article ID or DOI</span>
@@ -87,16 +99,49 @@
 				<input class="btn btn-primary" type="submit" value="GET">
 			</form>
 
-			<h2>Your articles</h2>
+			<h2 class="page-header">Your articles</h2>
 
-			<div><a href="http://api.figshare.com/v1/my_data/articles">List your articles</a></div>
+			<p class="warning">These methods all require OAuth authentication</p>
+
+			<h3>Index</h3>
+
+			<p class="description">List all your articles</p>
+
+			<div><a class="btn btn-primary" href="http://api.figshare.com/v1/my_data/articles">GET</a></div>
+
+			<h3>Create</h3>
+
+			<p class="description">Create a new article</p>
+
+			<form action="http://api.figshare.com/v1/my_data/articles" enctype="application/json">
+				<label>
+					<span>Type</span>
+					<select name="defined_type" required>
+						<option value="dataset">Dataset</option>
+					</select>
+				</label>
+
+				<label>
+					<span>Title</span>
+					<input type="text" name="title" placeholder="Article title" required>
+				</label>
+
+				<label>
+					<span>Description</span>
+					<textarea name="description" placeholder="Article description" required></textarea>
+				</label>
+
+				<input class="btn btn-primary" type="submit" value="POST">
+			</form>
 
 			<h3>Retrieve</h3>
+
+			<p class="description">Retrieve one of your articles by ID</p>
 
 			<form action="http://api.figshare.com/v1/my_data/articles/{id}">
 				<label>
 					<span>Article ID</span>
-					<input name="id" type="text" placeholder="article id" pattern="^\d+$">
+					<input name="id" type="text" placeholder="article id" pattern="^\d+$" data-example="1">
 				</label>
 
 				<input class="btn btn-primary" type="submit" value="GET">
@@ -106,6 +151,8 @@
 
 		<section>
 			<h2>Authors</h2>
+
+			<p class="description">List all authors of your articles</p>
 
 			<form action="http://api.figshare.com/v1/my_data/authors">
 				<label>
