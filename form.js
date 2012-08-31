@@ -1,7 +1,13 @@
 $("form").on("submit", function(event) {
 	event.preventDefault();
+	
+	var contentType = this.getAttribute("enctype");
+	if (contentType) {
+		alert("This data needs to be submitted as " + contentType + ", which isn't possible with HTML forms.");
+		return false;
+	}
 
-	var form = $(this);
+	var form = $(this);	
 	var formToSubmit = form.clone();
 
 	// replace the placeholders in the form action URI template, and remove those inputs from the form
